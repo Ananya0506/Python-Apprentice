@@ -1,7 +1,3 @@
----
-uid: Io0hFJiW
----
-
 # Introduction to Python with Turtle Graphics
 
 This first module of the Python course teaches the basic syntax of Python

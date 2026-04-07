@@ -1,5 +1,4 @@
-""" 
-Number Guess Game
+""" Number Guess Game
 
 Pick a random number between 1 and 100. If the random number is divisible by 7,
 pick another number and continue picking new numbers until the random number is
@@ -26,11 +25,13 @@ Get a random number:
 Use the ask_integer function to get the user's guess, like this:
     guess = ask_integer("Guess a number between 1 and 100: ")
 
-Note: The prompts and output for your program will be in the teminal
+NOTE! The prompts and output for your program will be in the teminal
 at the bottom of the editor screen; this program does not use the GUI.
+
 """
 
 import random
+from tkinter import messagebox, simpledialog
 
 def ask_integer(prompt):
     """Function to ask the user for an integer"""
@@ -40,16 +41,30 @@ def ask_integer(prompt):
         except ValueError:
             print("Please enter a valid number!")
 
+
 # Pick the random number
-
+n = random.randint(1, 100)
 # In your loop:
-
+i = 0
+while True:
     # Get the user's guess
-
+    guess = simpledialog.askinteger("guess", "Guess the number between 1-100") 
     # If the user's guess is divisible by 7, tell the user to start over
+    if guess%7 == 0:
+        messagebox.showinfo('ERROR', "BAD NUMBER, PLEASE START OVER")
+        n = random.randint(1, 100)
 
     # If the user's guess is too high, tell the user
-
+    elif guess > n:
+        messagebox.showinfo('INCORRECT', "TOO HIGH")
     # If the user's guess is too low, tell the user
-    
+    elif guess < n:
+        messagebox.showinfo('INCORRECT', "TOO LOW")
     # If the user's guess is correct, tell the user and break out of the loop
+    elif guess == n:
+        messagebox.showinfo('CORRECT', "YOU GOT IT!!!")
+        break
+
+
+
+
