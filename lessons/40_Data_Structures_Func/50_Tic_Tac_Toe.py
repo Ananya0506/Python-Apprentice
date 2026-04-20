@@ -9,26 +9,14 @@ O_MARK = "O"
 # IMPORTANT! In your code, you should use the constants X_MARK and O_MARK instead of the strings "x" and "o"
 
 def check_row(l):
-    """Check if a player won on a row
-    Args:
-        l: a 3 element iterable
-        
-    Returns:
-        The winner's token ( x or o ) if there is one, otherwise None
-        """
+
     if all(e == l[0] and e != "" for e in l):
             return l[0]
     return None
 
 
 def check_win(board):
-    """Check if a player has won on a board
-    Args:
-        board: a 3x3 2D array
-    
-    Returns:
-        The winner's token ( x or o ) if there is one, otherwise None
-    """
+ 
     for row in board:
             winner = check_row(row)
             if winner:
